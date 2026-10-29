@@ -222,3 +222,8 @@ create policy "contatos: equipe acompanha"
 on public.contatos_site for update to authenticated
 using ((select privado.eh_equipe()))
 with check ((select privado.eh_equipe()));
+
+-- ---------------------------------------------------------- service_role -----
+-- A função convidar-usuario usa a chave de serviço, que ignora as regras de linha,
+-- mas ainda precisa de permissão nas tabelas (o projeto não libera tabelas novas sozinho).
+grant all on all tables in schema public to service_role;

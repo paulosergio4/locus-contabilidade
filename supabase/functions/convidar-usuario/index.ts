@@ -14,7 +14,8 @@
 //               "convite": manda e-mail de convite (precisa de SMTP configurado)
 //
 // Saída: { usuario_id, ja_existia, senha_provisoria? }
-// Só quem é da equipe e está ativo pode chamar.
+// Só quem é da equipe e está ativo pode chamar. O login é conferido aqui dentro
+// (auth.getUser), por isso a função é publicada com "Verify JWT" desligado.
 // =============================================================================
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
@@ -48,6 +49,19 @@ function senhaProvisoria(): string {
   return Array.from(bytes, (b) => letras[b % letras.length]).join("");
 }
 
+// Projetos novos trazem a chave secreta em SUPABASE_SECRET_KEYS (JSON); os antigos, em
+// SUPABASE_SERVICE_ROLE_KEY. Aceita os dois para a função não quebrar numa migração de chaves.
+function chaveDeServico(): string {
+  const antiga = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (antiga) return antiga;
+  try {
+    const novas = JSON.parse(Deno.env.get("SUPABASE_SECRET_KEYS") ?? "{}") as Record<string, string>;
+    return novas.default ?? Object.values(novas)[0] ?? "";
+  } catch (_) {
+    return "";
+  }
+}
+
 const EMAIL_VALIDO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const UUID_VALIDO = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -55,7 +69,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   if (req.method !== "POST") return resposta({ erro: "Use POST." }, 405);
 
-  const admin = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
+  const admin = createClient(Deno.env.get("SUPABASE_URL")!, chaveDeServico(), {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
@@ -101,7 +115,7 @@ Deno.serve(async (req) => {
         data: { nome },
         redirectTo: Deno.env.get("URL_APP") ?? undefined,
       });
-      if (error) return resposta({ erro: `Não consegui enviar o convite: ${error.message}` }, 400);
+      if (error) return resposta({ erro: "Não consegui enviar o convite: " + error.message }, 400);
       usuarioId = data.user.id;
     } else {
       senha = senhaProvisoria();
@@ -111,7 +125,7 @@ Deno.serve(async (req) => {
         email_confirm: true,
         user_metadata: { nome, trocar_senha: true },
       });
-      if (error) return resposta({ erro: `Não consegui criar o acesso: ${error.message}` }, 400);
+      if (error) return resposta({ erro: "Não consegui criar o acesso: " + error.message }, 400);
       usuarioId = data.user.id;
     }
   }
