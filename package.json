@@ -1,0 +1,31 @@
+{
+  "name": "locus-contabilidade",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lócus Contabilidade: site, painel de diagnóstico, app do cliente e área da equipe.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "verificar": "npm run lint && npm run tipos && npm test",
+    "lint": "eslint . && stylelint \"web/**/*.css\" && prettier --check .",
+    "formatar": "prettier --write . && eslint . --fix && stylelint \"web/**/*.css\" --fix",
+    "tipos": "tsc -p jsconfig.json",
+    "test": "node --test \"testes/unidade/*.test.js\"",
+    "test:banco": "bash testes/banco/rodar.sh",
+    "servir": "npx --yes http-server web -p 8080 -c-1",
+    "vendor": "node ferramentas/copiar-vendor.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@supabase/supabase-js": "^2.118.0",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "stylelint": "^17.16.0",
+    "stylelint-config-standard": "^40.0.0",
+    "typescript": "^7.0.2"
+  }
+}

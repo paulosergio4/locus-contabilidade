@@ -1,0 +1,14 @@
+# Avisa quando uma ferramenta ou ação do GitHub tem versão nova (inclusive correções de segurança).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      ferramentas:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

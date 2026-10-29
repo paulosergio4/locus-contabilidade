@@ -1,0 +1,44 @@
+/* Página do aviso de privacidade: texto simples, nas cores da Lócus. */
+:root {
+  --bg: #f6f2e9;
+  --ink: #1f2416;
+  --muted: #5e6450;
+  --olive: #56623a;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Montserrat, system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.aviso {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+}
+
+.aviso h1 {
+  font-size: 2rem;
+  margin: 16px 0 4px;
+}
+
+.aviso h2 {
+  font-size: 1.1rem;
+  margin: 28px 0 6px;
+  color: var(--olive);
+}
+
+.atualizado {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.voltar {
+  color: var(--olive);
+  font-weight: 600;
+  text-decoration: none;
+}

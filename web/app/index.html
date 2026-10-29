@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>App Lócus</title>
+    <meta
+      name="description"
+      content="App da Lócus Contabilidade Estratégica: guias, documentos, painel e atendimento."
+    />
+    <meta name="theme-color" content="#F6F2E9" />
+    <meta name="robots" content="noindex" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icones/icone-192.png" />
+    <link rel="apple-touch-icon" href="icones/icone-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Lócus" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="../compartilhado/vendor/supabase.js" defer></script>
+    <script src="js/main.js" type="module"></script>
+  </head>
+  <body>
+    <!-- Logo usado no login e no menu lateral -->
+    <svg width="0" height="0" class="sr-only" aria-hidden="true">
+      <symbol id="logo-lockup" viewBox="0 0 448 120">
+        <g transform="translate(6,8) scale(1.06)">
+          <rect x="16" y="10" width="19" height="80" rx="5" fill="var(--ink)" />
+          <rect x="16" y="71" width="74" height="19" rx="5" fill="var(--ink)" />
+          <path
+            d="M65 53 V66 M40 41 H53"
+            stroke="#B9C38E"
+            stroke-width="3.4"
+            stroke-linecap="round"
+            stroke-dasharray="0.1 6.2"
+          />
+          <circle cx="65" cy="41" r="11.5" fill="#C0743F" />
+        </g>
+        <text
+          x="128"
+          y="78"
+          font-family="Montserrat, sans-serif"
+          font-weight="700"
+          font-size="70"
+          letter-spacing="7"
+          fill="var(--ink)"
+        >
+          LOCUS
+        </text>
+        <circle cx="213.5" cy="18.5" r="6" fill="#C0743F" />
+        <text
+          x="129"
+          y="108"
+          font-family="Montserrat, sans-serif"
+          font-weight="500"
+          font-size="13.3"
+          letter-spacing="4.2"
+          fill="var(--olive)"
+        >
+          CONTABILIDADE ESTRATÉGICA
+        </text>
+      </symbol>
+    </svg>
+    <!-- Tela de entrada: aparece enquanto ninguém está logado -->
+    <section class="login" id="login" hidden aria-labelledby="login-titulo">
+      <svg class="lg" viewBox="0 0 448 120" role="img" aria-label="Lócus Contabilidade Estratégica">
+        <use href="#logo-lockup" />
+      </svg>
+      <div id="login-conteudo"></div>
+    </section>
+
+    <!-- App: abas e conteúdo -->
+    <div class="app" id="app" hidden>
+      <nav class="tabs" id="tabs" aria-label="Menu do app"></nav>
+      <main class="view" id="view" tabindex="-1"></main>
+    </div>
+
+    <div class="sheet-bg" id="sheetBg"></div>
+    <div
+      class="sheet"
+      id="sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Detalhes"
+      tabindex="-1"
+    >
+      <div class="grab"></div>
+      <div id="sheetBody"></div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"><i></i><span id="toastTx"></span></div>
+  </body>
+</html>

@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Lócus</title>
+
+    <title>Lócus Contabilidade Estratégica</title>
+
+    <meta
+      name="description"
+      content="Lócus Contabilidade Estratégica: contabilidade guiada por dados em Pompéu – MG. Fiscal, contábil, departamento pessoal, abertura de empresas e painéis de gestão."
+    />
+
+    <meta name="theme-color" content="#56623A" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232E3620'/%3E%3Crect x='24' y='18' width='16' height='62' rx='4' fill='%23F3EEE2'/%3E%3Crect x='24' y='65' width='56' height='15' rx='4' fill='%23F3EEE2'/%3E%3Ccircle cx='64' cy='40' r='11' fill='%23C0743F'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+    <script src="compartilhado/vendor/supabase.js" defer></script>
+    <script src="js/contato.js" type="module"></script>
+  </head>
+  <body>
+    <svg class="u-sprite" width="0" height="0" aria-hidden="true">
+      <symbol id="logo" viewBox="0 0 100 100">
+        <rect x="16" y="10" width="19" height="80" rx="5" fill="currentColor" />
+        <rect x="16" y="71" width="74" height="19" rx="5" fill="currentColor" />
+        <path
+          d="M65 53 V66 M40 41 H53"
+          stroke="#B9C38E"
+          stroke-width="3.4"
+          stroke-linecap="round"
+          stroke-dasharray="0.1 6.2"
+        />
+        <circle cx="65" cy="41" r="11.5" fill="#C0743F" />
+      </symbol>
+    </svg>
+
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <header id="topo">
+      <div class="wrap nav">
+        <a class="brand" href="#inicio" aria-label="Lócus Contabilidade Estratégica, início">
+          <svg class="u-ink" width="40" height="40"><use href="#logo" /></svg>
+          <span class="brand-name"
+            ><b>L<span class="o-dot">O</span>CUS</b><small>Contabilidade Estratégica</small></span
+          >
+        </a>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portal">Portal</a></li>
+          <li><a href="#nota">Lócus Nota</a></li>
+          <li><a href="#mei-nano">MEI ou Nano</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+        <div class="nav-acoes">
+          <button
+            class="tema-btn"
+            type="button"
+            id="tema-btn"
+            aria-label="Alternar fundo claro ou escuro"
+            title="Fundo claro / escuro"
+          >
+            <svg
+              class="ic-lua"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+            </svg>
+            <svg
+              class="ic-sol"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+              />
+            </svg>
+          </button>
+          <a class="btn" href="#contato">Fale conosco</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <div class="wrap hero">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow reveal">Contabilidade guiada por dados · Pompéu – MG</span>
+            <h1 class="reveal d1">O ponto exato para o <em>crescimento</em> do seu negócio.</h1>
+            <p class="lede reveal d2">
+              Cuidamos da rotina fiscal, contábil e trabalhista da sua empresa e transformamos esses números
+              em painéis claros. Você entende para onde vai o dinheiro e decide com segurança.
+            </p>
+            <div class="hero-ctas reveal d3">
+              <a class="btn" href="#diagnostico"
+                >Quero o diagnóstico gratuito
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" /></svg
+              ></a>
+              <a class="btn ghost" href="#servicos">Ver serviços</a>
+            </div>
+            <div class="hero-meta">
+              <div><strong>Todos os regimes</strong>Simples, Presumido e Real</div>
+              <div><strong>Portal 24h</strong>Guias no celular</div>
+              <div><strong>Relatório mensal</strong>Seus indicadores no painel</div>
+            </div>
+          </div>
+
+          <div class="panel reveal d2" aria-label="Exemplo ilustrativo do painel mensal entregue ao cliente">
+            <div class="panel-head"><span>Painel mensal · exemplo</span><i>competência 09/2026</i></div>
+            <div class="kpis">
+              <div class="kpi">
+                <small>Faturamento</small
+                ><b data-to="184" data-pre="R$ " data-suf=" mil" data-dec="0">R$ 184 mil</b
+                ><em data-to="8.4" data-pre="+" data-suf="% no mês" data-dec="1">+8,4% no mês</em>
+              </div>
+              <div class="kpi">
+                <small>Margem líquida</small><b data-to="11.7" data-suf="%" data-dec="1">11,7%</b
+                ><em data-to="1.9" data-pre="+" data-suf=" p.p." data-dec="1">+1,9 p.p.</em>
+              </div>
+              <div class="kpi">
+                <small>Carga tributária</small><b data-to="6.1" data-suf="%" data-dec="1">6,1%</b
+                ><em>Simples Nacional</em>
+              </div>
+            </div>
+            <div class="chart">
+              <svg
+                viewBox="0 0 360 150"
+                role="img"
+                aria-label="Gráfico de faturamento e despesas de abril a setembro"
+              >
+                <g stroke="var(--line)" stroke-width="1">
+                  <line x1="30" y1="20" x2="350" y2="20" />
+                  <line x1="30" y1="60" x2="350" y2="60" />
+                  <line x1="30" y1="100" x2="350" y2="100" />
+                  <line x1="30" y1="130" x2="350" y2="130" />
+                </g>
+                <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">
+                  <text x="0" y="23">200</text>
+                  <text x="0" y="63">150</text>
+                  <text x="0" y="103">100</text>
+                  <text x="6" y="133">75</text>
+                  <text x="30" y="146">abr</text>
+                  <text x="94" y="146">mai</text>
+                  <text x="158" y="146">jun</text>
+                  <text x="222" y="146">jul</text>
+                  <text x="286" y="146">ago</text>
+                  <text x="334" y="146">set</text>
+                </g>
+                <path
+                  class="area"
+                  d="M36 92 L100 84 L164 76 L228 64 L292 50 L342 37 L342 130 L36 130 Z"
+                  fill="var(--olive)"
+                  opacity=".12"
+                />
+                <path
+                  class="draw"
+                  d="M36 92 L100 84 L164 76 L228 64 L292 50 L342 37"
+                  fill="none"
+                  stroke="var(--olive)"
+                  stroke-width="2.4"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M36 110 L100 106 L164 108 L228 101 L292 96 L342 92"
+                  fill="none"
+                  stroke="var(--line)"
+                  stroke-width="2"
+                  stroke-dasharray="4 4"
+                />
+                <circle cx="342" cy="37" r="4" fill="var(--olive)" />
+              </svg>
+              <div class="chart-legend">
+                <span>Faturamento (R$ mil)</span><span class="b">Despesas (R$ mil)</span>
+              </div>
+            </div>
+            <p class="panel-foot">
+              Números de exemplo. Cada cliente recebe o painel com os dados reais da própria empresa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section class="problema" aria-label="O problema que a Lócus resolve">
+        <div class="wrap problema-in">
+          <p class="problema-t">
+            Para o pequeno empresário, a contabilidade costuma ser <b>papel</b>, <b>pressa</b> e
+            <b class="cobre">susto no dia 20</b>.
+          </p>
+          <p class="problema-r">A Lócus muda isso: mostra onde a sua empresa está e para onde ela pode ir.</p>
+        </div>
+      </section>
+
+      <section id="servicos" class="band-beige">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">Serviços</span>
+              <h2>Da guia de imposto à decisão estratégica.</h2>
+            </div>
+            <p class="lede">
+              A base é a contabilidade bem feita, no prazo e dentro da lei. Por cima dela, entregamos análise
+              para você saber onde melhorar.
+            </p>
+          </div>
+          <div class="services">
+            <div class="service">
+              <svg viewBox="0 0 24 24">
+                <path pathLength="1" d="M4 4h12l4 4v12H4z" />
+                <path pathLength="1" d="M8 12h8M8 16h5" />
+              </svg>
+              <h3>Contabilidade</h3>
+              <p>Escrituração, balancetes e demonstrações em dia, prontos para banco, sócio ou licitação.</p>
+              <ul>
+                <li>Balanço e DRE</li>
+                <li>ECD e ECF</li>
+              </ul>
+            </div>
+            <div class="service">
+              <svg viewBox="0 0 24 24"><path pathLength="1" d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg>
+              <h3>Fiscal e tributário</h3>
+              <p>
+                Apuração de impostos, obrigações acessórias e revisão do regime para pagar só o necessário.
+              </p>
+              <ul>
+                <li>Simples, Presumido e Real</li>
+                <li>SPED Fiscal e EFD</li>
+              </ul>
+            </div>
+            <div class="service">
+              <svg viewBox="0 0 24 24">
+                <circle pathLength="1" cx="9" cy="8" r="3.5" />
+                <path pathLength="1" d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5" />
+                <path pathLength="1" d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.8 2.6 2.5 3 5.2" />
+              </svg>
+              <h3>Departamento pessoal</h3>
+              <p>Folha, admissões, férias e rescisões com eSocial transmitido no prazo.</p>
+              <ul>
+                <li>Folha e pró-labore</li>
+                <li>eSocial e FGTS Digital</li>
+              </ul>
+            </div>
+            <div class="service">
+              <svg viewBox="0 0 24 24">
+                <path pathLength="1" d="M12 3v18M3 12h18" />
+                <circle pathLength="1" cx="12" cy="12" r="9" />
+              </svg>
+              <h3>Abertura de empresas</h3>
+              <p>CNPJ, alvará, inscrições e escolha do regime certo desde o primeiro dia.</p>
+              <ul>
+                <li>MEI para ME</li>
+                <li>Alterações contratuais</li>
+              </ul>
+            </div>
+            <div class="service">
+              <svg viewBox="0 0 24 24">
+                <rect pathLength="1" x="3" y="3" width="18" height="18" rx="2" />
+                <path pathLength="1" d="M7 15l3-3 3 2 4-5" />
+              </svg>
+              <h3>Painéis de gestão</h3>
+              <p>Relatório mensal em painel visual com faturamento, margem, despesas e impostos.</p>
+              <ul>
+                <li>Indicadores por mês</li>
+                <li>Comparativo anual</li>
+              </ul>
+            </div>
+            <div class="service">
+              <svg viewBox="0 0 24 24">
+                <path pathLength="1" d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z" />
+              </svg>
+              <h3>Planejamento tributário</h3>
+              <p>Simulação de cenários para reduzir a carga de impostos de forma legal.</p>
+              <ul>
+                <li>Comparativo de regimes</li>
+                <li>Fator R e anexos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="como" class="band-olive">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">Como trabalhamos</span>
+              <h2>Três etapas para colocar sua empresa no ponto certo.</h2>
+            </div>
+            <p class="lede">
+              Antes de qualquer contrato, olhamos os seus números. Assim a conversa começa pelo que importa
+              para o seu negócio.
+            </p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="num">Etapa 1</span>
+              <h3>Diagnóstico</h3>
+              <p>
+                Analisamos três meses de extratos e notas e mostramos em um painel onde estão as perdas e as
+                oportunidades.
+              </p>
+            </div>
+            <div class="step">
+              <span class="num">Etapa 2</span>
+              <h3>Organização</h3>
+              <p>Ajustamos regime tributário, plano de contas e rotina de envio de documentos pelo portal.</p>
+            </div>
+            <div class="step">
+              <span class="num">Etapa 3</span>
+              <h3>Acompanhamento</h3>
+              <p>
+                Todo mês você recebe as guias, o painel de indicadores e uma conversa sobre os próximos
+                passos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portal">
+        <div class="wrap split">
+          <div>
+            <span class="eyebrow">Portal do cliente</span>
+            <h2 class="u-mt-12">Sua empresa organizada na palma da mão.</h2>
+            <p class="lede u-mt-18">
+              No app da Lócus você vê as guias, envia documentos e fala com a equipe. Nada de papel perdido no
+              WhatsApp.
+            </p>
+            <div class="feature-list">
+              <div class="feature">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16" /></svg>
+                </div>
+                <div>
+                  <h3>Guias sempre disponíveis</h3>
+                  <p>DAS, DARF, FGTS e holerites publicados assim que gerados, com aviso no celular.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z" /></svg>
+                </div>
+                <div>
+                  <h3>Solicitações com histórico</h3>
+                  <p>Admissão, rescisão ou dúvida viram um chamado com prazo e resposta registrada.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" /></svg>
+                </div>
+                <div>
+                  <h3>Notas capturadas automaticamente</h3>
+                  <p>Os XML das suas notas fiscais chegam direto da SEFAZ e da prefeitura, sem digitação.</p>
+                </div>
+              </div>
+            </div>
+            <a class="btn ghost u-mt-18 portal-link" href="app/" target="_blank" rel="noopener"
+              >Ver o app por dentro</a
+            >
+          </div>
+          <div class="phone" aria-label="Exemplo ilustrativo da tela do portal do cliente">
+            <div class="screen">
+              <div class="top"><span>Portal Lócus</span><span>exemplo</span></div>
+              <h4>Outubro de 2026</h4>
+              <div class="doc">
+                <div><b>DAS · Simples Nacional</b><span>vence 20/11</span></div>
+                <span class="tag due">A pagar</span>
+              </div>
+              <div class="doc">
+                <div><b>Folha de setembro</b><span>8 holerites</span></div>
+                <span class="tag ok">Pronto</span>
+              </div>
+              <div class="doc">
+                <div><b>FGTS Digital</b><span>vence 20/10</span></div>
+                <span class="tag ok">Pago</span>
+              </div>
+              <div class="doc">
+                <div><b>Painel de setembro</b><span>margem 11,7%</span></div>
+                <span class="tag ok">Novo</span>
+              </div>
+              <div class="doc">
+                <div><b>Notas recebidas</b><span>142 XML importados</span></div>
+                <span class="tag ok">OK</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tecnologia" class="band-olive">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">Tecnologia · em construção</span>
+              <h2>
+                Você cuida da empresa. <br />
+                A papelada chega sozinha.
+              </h2>
+            </div>
+            <p class="lede">
+              O que estamos construindo no portal para você não precisar lembrar de nada nem mandar nada.
+            </p>
+          </div>
+          <div class="tech">
+            <div class="tech-col">
+              <span class="tech-h">Sem mandar nada</span>
+              <div class="tcard">
+                <h3>Notas de compra automáticas</h3>
+                <p>Toda nota emitida contra o seu CNPJ entra no sistema no mesmo dia.</p>
+              </div>
+              <div class="tcard">
+                <h3>Extrato que entra sozinho</h3>
+                <p>Você autoriza uma vez pelo Open Finance e o extrato chega todo dia.</p>
+              </div>
+              <div class="tcard">
+                <h3>Dúvida por áudio no WhatsApp</h3>
+                <p>Mande um áudio. O básico é respondido na hora e o resto vai para a equipe.</p>
+              </div>
+            </div>
+            <div class="tech-col">
+              <span class="tech-h">Saber antes</span>
+              <div class="tcard">
+                <h3>Imposto previsto em tempo real</h3>
+                <p>A cada nota emitida, você vê quanto deve vir na guia do mês.</p>
+              </div>
+              <div class="tcard">
+                <h3>Semáforo da empresa</h3>
+                <p>Verde, amarelo ou vermelho todo mês, com uma frase do que fazer.</p>
+              </div>
+              <div class="tcard">
+                <h3>Certidões sempre em dia</h3>
+                <p>Conferidas todo mês. Pendência avisada antes de você precisar.</p>
+              </div>
+            </div>
+            <div class="tech-col">
+              <span class="tech-h">Resolver sozinho</span>
+              <div class="tcard">
+                <h3>Pacote para o banco</h3>
+                <p>Faturamento, DRE e certidões num PDF, com um toque.</p>
+              </div>
+              <div class="tcard">
+                <h3>Abertura de empresa com rastreio</h3>
+                <p>Cada etapa à vista, como uma encomenda.</p>
+              </div>
+              <div class="tcard">
+                <h3>Calculadora de preço de venda</h3>
+                <p>O preço que já cobre o imposto e garante o seu lucro.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cadeado">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5zM12 15v2" />
+            </svg>
+            <p>
+              <b>Tudo protegido por criptografia.</b> No celular, no caminho e no servidor. Cada empresa vê
+              apenas os próprios dados.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="nota">
+        <div class="wrap split">
+          <div>
+            <span class="eyebrow">Lócus Nota · para MEI e pequenas empresas</span>
+            <h2 class="u-mt-12">Emita a nota. Veja o imposto. Pague a guia.</h2>
+            <p class="lede u-mt-18">
+              A partir de 2027, o MEI que presta serviço passa a emitir nota para todo cliente, inclusive
+              pessoa física. O Lócus Nota resolve isso em poucos toques, já com o IBS e a CBS preenchidos.
+            </p>
+            <div class="feature-list">
+              <div class="feature">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6" /></svg>
+                </div>
+                <div>
+                  <h3>Nota em três campos</h3>
+                  <p>Cliente, serviço e valor. O PDF vai direto para o WhatsApp do cliente.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6" /></svg>
+                </div>
+                <div>
+                  <h3>Alerta de limite do MEI</h3>
+                  <p>Uma barra do ano avisa antes de estourar o teto de faturamento.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16v12H4zM4 11h16" /></svg>
+                </div>
+                <div>
+                  <h3>Guia do mês com PIX</h3>
+                  <p>O DAS aparece no app, com aviso três dias antes de vencer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="phone" aria-label="Exemplo ilustrativo da tela de emissão do Lócus Nota">
+            <div class="screen">
+              <div class="top"><span>Lócus Nota</span><span>exemplo</span></div>
+              <h4>Studio Ana Cabelos · MEI</h4>
+              <div class="limite">
+                <div><span>Faturado em 2026</span><b>R$ 51.300</b></div>
+                <i><em style="width: 63%"></em></i><small>63% do limite do MEI</small>
+              </div>
+              <div class="doc">
+                <div><b>Corte e escova</b><span>Maria Souza · R$ 120,00</span></div>
+                <span class="tag ok">Emitida</span>
+              </div>
+              <div class="doc">
+                <div><b>Coloração</b><span>Joana Lima · R$ 260,00</span></div>
+                <span class="tag ok">Emitida</span>
+              </div>
+              <div class="doc">
+                <div><b>DAS de outubro</b><span>vence 20/11</span></div>
+                <span class="tag due">A pagar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="plans">
+            <div class="plan">
+              <h3>Nota</h3>
+              <div class="price">R$ 29,90<small>/mês</small></div>
+              <ul>
+                <li>Até 30 notas de serviço</li>
+                <li>Clientes salvos</li>
+                <li>Alerta de limite do MEI</li>
+              </ul>
+            </div>
+            <div class="plan destaque">
+              <h3>Nota + Guia</h3>
+              <div class="price">R$ 49,90<small>/mês</small></div>
+              <ul>
+                <li>Notas ilimitadas</li>
+                <li>DAS do mês com PIX e aviso</li>
+                <li>Chat com a Lócus</li>
+              </ul>
+            </div>
+            <div class="plan">
+              <h3>Contabilidade Lócus</h3>
+              <div class="price">sob proposta</div>
+              <ul>
+                <li>Tudo do Nota + Guia</li>
+                <li>Painel mensal e reunião por trimestre</li>
+                <li>Para quem cresceu e virou ME</li>
+              </ul>
+            </div>
+          </div>
+          <p class="nota-obs">
+            Lançamento previsto para o começo de 2027. Preços de lançamento, sujeitos a ajuste.
+          </p>
+        </div>
+      </section>
+
+      <section id="mei-nano" class="band-beige">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">Simulador · reforma tributária</span>
+              <h2>MEI ou nanoempreendedor? Veja o que compensa.</h2>
+            </div>
+            <p class="lede">
+              O nanoempreendedor é a pessoa física que fatura até metade do teto do MEI e fica fora do IBS e
+              da CBS. Simulação com as regras de 2027: teto do MEI de R$ 110 mil.
+            </p>
+          </div>
+          <div class="sim">
+            <form id="sim-form" novalidate>
+              <label class="full"
+                ><span id="s-fat-l">Quanto você fatura por ano</span
+                ><input id="s-fat" inputmode="numeric" data-moeda value="R$ 36.000,00"
+              /></label>
+              <label
+                >O que você faz
+                <select id="s-ativ">
+                  <option value="servico">Presto serviço</option>
+                  <option value="comercio">Vendo produtos</option>
+                  <option value="ambos">Vendo e presto serviço</option>
+                  <option value="app">Uber, 99, iFood e outros apps</option>
+                </select></label
+              >
+
+              <label
+                >Quer ter INSS (aposentadoria e auxílio)?
+                <select id="s-inss">
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não agora</option>
+                </select></label
+              >
+            </form>
+            <div class="sim-res" aria-live="polite">
+              <div class="opc" id="o-mei">
+                <span class="opc-h">MEI</span><b id="r-mei">—</b><small id="d-mei"></small>
+              </div>
+              <div class="opc" id="o-nano">
+                <span class="opc-h">Nanoempreendedor</span><b id="r-nano">—</b><small id="d-nano"></small>
+                <div class="apps" id="apps" hidden></div>
+              </div>
+              <p class="veredito" id="veredito"></p>
+            </div>
+          </div>
+          <p class="sim-obs">
+            Teto do MEI de 2027 pela Lei Complementar 238/2026. O limite do nano foi calculado como metade
+            desse teto, como diz a regra da reforma, e ainda depende de regulamentação. Valores do DAS e do
+            INSS de 2026 (salário mínimo de R$ 1.621), porque os de 2027 ainda não saíram. Não inclui o
+            Imposto de Renda. Para decidir, fale com a Lócus.
+          </p>
+        </div>
+      </section>
+
+      <section id="diagnostico">
+        <div class="wrap">
+          <div class="cta">
+            <div>
+              <span class="eyebrow">Diagnóstico financeiro gratuito</span>
+              <h2 class="u-mt-12">Descubra onde o dinheiro da sua empresa está indo.</h2>
+              <p>
+                Envie três meses de extratos ou planilhas. Devolvemos um painel com as despesas por categoria,
+                a margem real e os pontos de atenção. Sem custo e sem compromisso.
+              </p>
+              <a class="btn" href="#contato">Solicitar diagnóstico</a>
+            </div>
+            <ol>
+              <li><b>01</b><span>Você envia extratos ou planilhas dos últimos 3 meses</span></li>
+              <li><b>02</b><span>Organizamos e classificamos cada lançamento</span></li>
+              <li><b>03</b><span>Apresentamos o painel em uma reunião de 30 minutos</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="band-beige">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">Quem somos</span>
+              <h2>Precisão contábil com olhar de dados.</h2>
+            </div>
+            <p class="lede">
+              A Lócus nasceu para ir além do envio de guias. Atuamos no ponto onde a contabilidade encontra a
+              análise de dados.
+            </p>
+          </div>
+          <div class="mvv">
+            <article>
+              <span class="eyebrow">Missão</span>
+              <p>
+                Transformar a complexidade contábil em inteligência de negócios, com estruturação financeira,
+                análises precisas e direcionamento estratégico para decisões seguras e lucrativas.
+              </p>
+            </article>
+            <article>
+              <span class="eyebrow">Visão</span>
+              <p>
+                Ser o escritório de contabilidade e gestão de referência na região, reconhecido pela análise
+                de dados aplicada aos negócios e pela excelência estratégica.
+              </p>
+            </article>
+          </div>
+          <div class="values">
+            <div class="value">
+              <h3>Precisão analítica</h3>
+              <p>Rigor em cada número e conformidade legal em cada entrega.</p>
+            </div>
+            <div class="value">
+              <h3>Decisão por dados</h3>
+              <p>Orientação baseada nos números reais de cada cliente.</p>
+            </div>
+            <div class="value">
+              <h3>Foco no ponto certo</h3>
+              <p>Resolver na raiz o que gera valor e crescimento.</p>
+            </div>
+            <div class="value">
+              <h3>Clareza</h3>
+              <p>Informação fiscal complexa traduzida em painéis simples.</p>
+            </div>
+            <div class="value">
+              <h3>Parceria ativa</h3>
+              <p>Lado a lado com o gestor no dia a dia da empresa.</p>
+            </div>
+          </div>
+
+          <div class="team u-mt-56">
+            <div class="person">
+              <div class="avatar">PS</div>
+              <div>
+                <h3>Paulo Sérgio</h3>
+                <small>Sócio · Contabilidade e tecnologia</small>
+                <p>
+                  Estudante de Ciências Contábeis, com cinco anos em TI e experiência em rotina fiscal de
+                  varejo. Cuida da contabilidade dos clientes junto com o Bruno e da tecnologia do escritório.
+                </p>
+              </div>
+            </div>
+            <div class="person">
+              <div class="avatar">B</div>
+              <div>
+                <h3>Bruno</h3>
+                <small>Sócio · Contabilidade e atendimento</small>
+                <p>
+                  Responsável pelo relacionamento com os clientes e pela rotina contábil e fiscal das empresas
+                  atendidas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato">
+        <div class="wrap contact">
+          <div>
+            <span class="eyebrow">Contato</span>
+            <h2 class="u-mt-12">Vamos conversar sobre a sua empresa.</h2>
+            <p class="lede u-mt-18">Conte um pouco sobre o seu negócio. Respondemos em até um dia útil.</p>
+            <div class="contact-info">
+              <div><small>WhatsApp</small><span>(37) 00000-0000</span></div>
+              <div><small>E-mail</small><span>contato@locus.com.br</span></div>
+              <div><small>Endereço</small><span>Pompéu – MG</span></div>
+              <div><small>Atendimento</small><span>Segunda a sexta, 8h às 18h</span></div>
+            </div>
+          </div>
+          <form id="form-contato" novalidate>
+            <label>Nome<input id="f-nome" name="nome" required placeholder="Seu nome" /></label>
+            <label>Empresa<input id="f-empresa" name="empresa" placeholder="Nome da empresa" /></label>
+            <label
+              >WhatsApp<input id="f-tel" name="tel" inputmode="tel" placeholder="(37) 9 0000-0000"
+            /></label>
+            <label
+              >E-mail<input
+                id="f-email"
+                name="email"
+                type="email"
+                inputmode="email"
+                placeholder="voce@empresa.com.br"
+            /></label>
+            <label
+              >Interesse
+              <select id="f-interesse" name="interesse">
+                <option>Diagnóstico gratuito</option>
+                <option>Trocar de contador</option>
+                <option>Abrir empresa</option>
+                <option>Planejamento tributário</option>
+                <option>Outro assunto</option>
+              </select></label
+            >
+            <label class="full"
+              >Mensagem<textarea
+                id="f-msg"
+                name="msg"
+                placeholder="Ramo, regime tributário, número de funcionários..."
+              ></textarea>
+            </label>
+            <label class="full consent"
+              ><input id="f-consent" name="consentimento" type="checkbox" required /> Concordo que a Lócus use
+              estes dados para responder ao meu contato, como explica o
+              <a href="privacidade.html">aviso de privacidade</a>.</label
+            >
+            <!-- Campo invisível contra robôs: pessoas não preenchem. -->
+            <label class="hp" aria-hidden="true"
+              >Site<input name="site" tabindex="-1" autocomplete="off"
+            /></label>
+            <div class="full cta-row">
+              <button class="btn" type="submit">Enviar mensagem</button>
+              <span class="form-msg" id="form-msg" role="status"></span>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div class="brand">
+          <svg class="u-cream" width="36" height="36"><use href="#logo" /></svg>
+          <span class="brand-name"
+            ><b>L<span class="o-dot">O</span>CUS</b><small>Contabilidade Estratégica</small></span
+          >
+        </div>
+        <p class="foot-claim">Você cuida da empresa. <b>A gente cuida dos números.</b></p>
+        <div class="foot-meta">
+          <span>CNPJ 00.000.000/0001-00</span>
+          <span>CRC-MG 000000/O</span>
+          <span>© 2026 Lócus Contabilidade Estratégica</span>
+          <a href="equipe/" class="foot-equipe">Área da equipe</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

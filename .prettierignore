@@ -1,0 +1,4 @@
+node_modules/
+web/compartilhado/vendor/
+docs/prototipos/
+package-lock.json

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "target": "es2022",
+    "module": "es2022",
+    "moduleResolution": "bundler",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "skipLibCheck": true,
+    "types": ["node"],
+    "maxNodeModuleJsDepth": 0
+  },
+  "include": [
+    "web/compartilhado/js/**/*.js",
+    "web/app/js/**/*.js",
+    "web/equipe/js/**/*.js",
+    "web/painel/js/carregar.js",
+    "web/js/contato.js",
+    "web/tipos.d.ts",
+    "testes/unidade/**/*.js"
+  ],
+  "exclude": ["node_modules"]
+}

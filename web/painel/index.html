@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Painel Lócus</title>
+
+    <meta
+      name="description"
+      content="Painel de Diagnóstico Financeiro da Lócus Contabilidade Estratégica. Arraste a planilha do cliente e veja a análise."
+    />
+
+    <meta name="robots" content="noindex" />
+
+    <meta name="theme-color" content="#12160D" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232E3620'/%3E%3Crect x='24' y='18' width='16' height='62' rx='4' fill='%23F3EEE2'/%3E%3Crect x='24' y='65' width='56' height='15' rx='4' fill='%23F3EEE2'/%3E%3Ccircle cx='64' cy='40' r='11' fill='%23C0743F'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <!-- Quando o painel é aberto pelo app (?entrega=<id>), a planilha vem do Supabase. -->
+    <script src="../compartilhado/vendor/supabase.js" defer></script>
+    <script src="js/carregar.js" type="module"></script>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="brand" href="../" title="Site da Lócus">
+          <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
+            <rect x="16" y="10" width="19" height="80" rx="5" fill="currentColor" />
+            <rect x="16" y="71" width="74" height="19" rx="5" fill="currentColor" />
+            <path
+              d="M65 53 V66 M40 41 H53"
+              stroke="#B9C38E"
+              stroke-width="3.4"
+              stroke-linecap="round"
+              stroke-dasharray="0.1 6.2"
+            />
+            <circle cx="65" cy="41" r="11.5" fill="#D4895A" />
+          </svg>
+          <b>L<span class="o-dot">O</span>CUS</b><span>PAINEL</span>
+        </a>
+        <div class="actions">
+          <a class="btn" href="../app/" id="voltar-app" hidden>Voltar ao app</a>
+          <button
+            class="btn icon"
+            type="button"
+            id="btn-tema"
+            aria-label="Alternar fundo claro ou escuro"
+            title="Fundo claro / escuro"
+          >
+            <svg class="tema-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+            </svg>
+            <svg class="tema-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+              />
+            </svg>
+          </button>
+          <a class="btn" href="Planilha_Lancamentos_Locus.xlsx" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v12M7 10l5 5 5-5M4 21h16" /></svg
+            >Planilha para o cliente</a
+          >
+          <button class="btn" type="button" id="btn-pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M7 14h10v7H7z"
+              /></svg
+            >Salvar PDF
+          </button>
+          <button class="btn primary" type="button" id="btn-open">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 16V4M7 9l5-5 5 5M4 20h16" /></svg
+            >Abrir planilha
+          </button>
+          <input type="file" id="file" accept=".xlsx,.xls,.csv" hidden />
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="head">
+        <div>
+          <span class="eyebrow">Diagnóstico financeiro</span>
+          <h1 id="cliente">Empresa Exemplo</h1>
+          <p id="periodo">Julho a setembro de 2026</p>
+        </div>
+        <span class="badge" id="badge">Dados de exemplo</span>
+      </section>
+
+      <div class="drop" id="drop">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+            <path d="M4 4h10l6 6v10H4z" />
+            <path d="M14 4v6h6M8 14h8M8 17h5" />
+          </svg>
+        </div>
+        <div class="t">
+          <b>Arraste aqui a planilha do cliente</b
+          ><small
+            >Funciona com a Planilha de Lançamentos da Lócus e com o arquivo de Diagnóstico. Os dados são
+            lidos só neste navegador e não saem do seu computador.</small
+          >
+        </div>
+        <button class="btn" type="button" id="btn-open2">Escolher arquivo</button>
+      </div>
+      <p class="err" id="err" hidden></p>
+
+      <div class="grid" id="grid">
+        <section class="p kpi c3 acc-sage">
+          <div class="lab">Receita média / mês</div>
+          <div class="val" id="k-rec"></div>
+          <div class="sub" id="k-rec-s"></div>
+          <svg class="spark" id="s-rec" viewBox="0 0 200 38" preserveAspectRatio="none"></svg>
+        </section>
+        <section class="p kpi c3 acc-copper">
+          <div class="lab">Despesas médias / mês</div>
+          <div class="val" id="k-desp"></div>
+          <div class="sub" id="k-desp-s"></div>
+          <svg class="spark" id="s-desp" viewBox="0 0 200 38" preserveAspectRatio="none"></svg>
+        </section>
+        <section class="p kpi c3 acc-gold">
+          <div class="lab">Resultado médio / mês</div>
+          <div class="val" id="k-res"></div>
+          <div class="sub" id="k-res-s"></div>
+          <svg class="spark" id="s-res" viewBox="0 0 200 38" preserveAspectRatio="none"></svg>
+        </section>
+        <section class="p kpi c3 acc-olive">
+          <div class="lab">Margem média</div>
+          <div class="val" id="k-mar"></div>
+          <div class="sub" id="k-mar-s"></div>
+          <svg class="spark" id="s-mar" viewBox="0 0 200 38" preserveAspectRatio="none"></svg>
+        </section>
+
+        <section class="p c6 acc-sage">
+          <h2>Indicadores do período <small>% da receita</small></h2>
+          <div class="rings" id="rings"></div>
+        </section>
+        <section class="p c6 acc-gold">
+          <h2>Resumo por mês</h2>
+          <div class="tscroll"><table id="tab"></table></div>
+        </section>
+
+        <section class="p c7 chart acc-sage">
+          <h2>Entradas x saídas por mês <small>R$</small></h2>
+          <div id="bars"></div>
+          <div class="legend">
+            <span><i class="sw-sage"></i>Entradas</span><span><i class="sw-copper"></i>Saídas</span>
+          </div>
+        </section>
+        <section class="p c5 acc-copper">
+          <h2>Para onde vai o dinheiro</h2>
+          <div class="donut" id="donut"></div>
+        </section>
+
+        <section class="p c5 acc-copper">
+          <h2>Maiores despesas <small>média mensal</small></h2>
+          <div class="rank" id="rank"></div>
+        </section>
+        <section class="p c7 chart acc-sage">
+          <h2>Resultado mês a mês <small>R$</small></h2>
+          <div id="line"></div>
+        </section>
+
+        <section class="p c12 acc-gold">
+          <h2>Pontos de atenção</h2>
+          <ul class="alerts" id="alerts"></ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>Lócus Contabilidade Estratégica · Pompéu – MG</span
+        ><span>Painel de diagnóstico · os números vêm da planilha carregada</span>
+      </div>
+    </footer>
+  </body>
+</html>
