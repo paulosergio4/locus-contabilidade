@@ -543,8 +543,12 @@
     if (!isFinite(alvo)) return;
     const dur = 1300,
       t0 = performance.now() + atraso * 1000;
+    // Cada contagem nova cancela a anterior do mesmo elemento. Sem isso, a animação dos
+    // dados de exemplo, ainda rodando, escrevia os números antigos por cima da planilha nova.
+    const vez = (el._vez = (el._vez || 0) + 1);
     el.textContent = f(0);
     (function passo(t) {
+      if (el._vez !== vez) return;
       const x = Math.max(0, Math.min(1, (t - t0) / dur));
       el.textContent = f(alvo * ease(x));
       if (x < 1 && !el._parar) requestAnimationFrame(passo);
