@@ -1,10 +1,16 @@
 # Guia rápido
 
+> Situação em 29/10/2026: projeto `locus-contabilidade` criado na organização Lócus (região São Paulo,
+> ref `cksyhdpqxxrxyjwsprgj`), migrações aplicadas, função `convidar-usuario` publicada, cadastro aberto
+> desligado e URLs do app configuradas. Falta criar o repositório no GitHub e o primeiro login da equipe.
+
 ## 1. Ligar o Supabase
 
 1. Criar o projeto na organização Lócus, região São Paulo (`sa-east-1`).
 2. Aplicar as migrações de `supabase/migrations/` em ordem.
-3. Publicar a função `supabase/functions/convidar-usuario`.
+3. Publicar a função `supabase/functions/convidar-usuario`. Se a função recusar o login da equipe
+   (erro 401 "Invalid JWT"), desligue "Verify JWT with legacy secret" nas configurações dela: o login
+   já é conferido dentro do código.
 4. Copiar a URL do projeto e a chave publicável para `web/compartilhado/js/config.js`.
 5. Em Authentication → URL Configuration, colocar o endereço do app em **Site URL** e em
    **Redirect URLs** (por exemplo `https://paulosergio4.github.io/locus-contabilidade/app/`).
