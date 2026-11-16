@@ -835,3 +835,29 @@ footer .wrap {
 .sw-copper {
   background: var(--copper);
 }
+
+/* ===== Logo: o acento do "ó" vira um ponto cobre, como no símbolo =====
+   Posição medida no acento agudo da Mulish: 61,8% da largura do "o" e 0,65 em acima da linha de base. */
+/* o "o" dentro do nome não pega o estilo de ".brand span" (o rótulo PAINEL) */
+.brand b .o-dot {
+  font: inherit;
+  line-height: 1;
+  color: inherit;
+  letter-spacing: inherit;
+}
+.o-dot {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+.o-dot::before {
+  content: "";
+  position: absolute;
+  left: 61.8%;
+  top: 0.148em;
+  width: 0.16em;
+  height: 0.16em;
+  border-radius: 50%;
+  background: #b87a55;
+  transform: translateX(-50%);
+}
