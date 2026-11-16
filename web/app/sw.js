@@ -4,7 +4,7 @@
  * Os dados (guias, documentos) nunca ficam aqui: vêm sempre do Supabase.
  * Ao mudar qualquer arquivo do app, aumente a VERSAO para os aparelhos atualizarem.
  */
-const VERSAO = "locus-app-v3";
+const VERSAO = "locus-app-v4";
 const ARQUIVOS = [
   "./",
   "./index.html",
