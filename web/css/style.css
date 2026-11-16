@@ -1,35 +1,35 @@
 /* Layout: faixas horizontais alternando bege e verde-oliva, conteúdo em grade de 12 colunas, hero com painel de dados ao lado */
 :root {
-  --olive: #56623a; /* verde-oliva botânico */
-  --olive-deep: #56623a; /* teste: oliva no lugar do oliva escuro */
-  --olive-soft: #8c9866;
-  --beige: #eae2d0; /* bege natural */
-  --paper: #f6f2e9;
-  --ink: #1f2416;
-  --muted: #5e6450;
-  --line: #d4cab2;
-  --card: #fffdf8;
-  --on-olive: #f3eee2;
-  --font-display: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-data: "IBM Plex Mono", ui-monospace, "Consolas", monospace;
+  --olive: #4f5b46; /* verde-oliva botânico */
+  --olive-deep: #4f5b46; /* teste: oliva no lugar do oliva escuro */
+  --olive-soft: #9ba88f;
+  --beige: #e8dfd2; /* bege natural */
+  --paper: #f4f2ee;
+  --ink: #2b2826;
+  --muted: #6e6862;
+  --line: #ddd3c4;
+  --card: #fff;
+  --on-olive: #f4f2ee;
+  --font-display: Mulish, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: Mulish, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: Mulish, system-ui, sans-serif;
   --wrap: 1160px;
-  --accent: #b9c38e; /* verde-sálvia, cor principal */
-  --accent-h: #a9b47c;
-  --on-accent: #1f2416;
+  --accent: #9ba88f; /* verde-sálvia, cor principal */
+  --accent-h: #8a9880;
+  --on-accent: #2b2826;
 }
 
 :root[data-theme="dark"] {
-  --olive: #9ba872;
-  --olive-deep: #141810;
-  --olive-soft: #6e7a4c;
-  --beige: #22281a;
-  --paper: #181c12;
-  --ink: #ece6d7;
-  --muted: #aeb29c;
-  --line: #3a412c;
-  --card: #1f2417;
-  --on-olive: #141810;
+  --olive: #a9b59d;
+  --olive-deep: #1c1a18;
+  --olive-soft: #6e7a63;
+  --beige: #262320;
+  --paper: #1c1a18;
+  --ink: #f1ece4;
+  --muted: #b5ada3;
+  --line: #3a3530;
+  --card: #262320;
+  --on-olive: #1c1a18;
   color-scheme: dark;
 }
 
@@ -55,6 +55,8 @@ body {
   font-size: 16px;
   line-height: 1.65;
   font-weight: 400;
+  /* números alinhados em colunas, no lugar da fonte mono antiga */
+  font-variant-numeric: tabular-nums;
 }
 a {
   color: inherit;
@@ -140,16 +142,16 @@ header {
   line-height: 1;
 }
 .brand-name b {
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
 }
 .brand-name small {
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: 4px;
+  margin-top: 5px;
   font-weight: 500;
 }
 .nav ul {
@@ -434,13 +436,13 @@ section {
 }
 .band-olive {
   background: var(--olive-deep);
-  color: #eee8da;
+  color: #f1ece4;
 }
 .band-olive .eyebrow {
-  color: #b9c38e;
+  color: #9ba88f;
 }
 .band-olive .lede {
-  color: #e3e5d2;
+  color: #e3e9dd;
 }
 
 /* Serviços */
@@ -513,13 +515,13 @@ section {
   counter-reset: s;
 }
 .step {
-  border-top: 2px solid #b9c38e;
+  border-top: 2px solid #9ba88f;
   padding-top: 22px;
 }
 .step .num {
   font-family: var(--font-data);
   font-size: 0.8rem;
-  color: #b9c38e;
+  color: #9ba88f;
 }
 .step h3 {
   margin-top: 10px;
@@ -527,7 +529,7 @@ section {
 }
 .step p {
   margin-top: 10px;
-  color: #e3e5d2;
+  color: #e3e9dd;
   font-size: 0.94rem;
 }
 @media (max-width: 800px) {
@@ -690,14 +692,14 @@ section {
 }
 .cta .btn {
   background: var(--on-accent);
-  color: #f3eee2;
+  color: #f4f2ee;
   border-color: var(--on-accent);
   margin-top: 26px;
 }
 .cta .btn:hover {
-  background: #1f2416;
-  border-color: #1f2416;
-  color: #f3eee2;
+  background: #2b2826;
+  border-color: #2b2826;
+  color: #f4f2ee;
 }
 @media (max-width: 820px) {
   .cta {
@@ -913,7 +915,7 @@ label.consent a {
 
 footer {
   background: var(--olive-deep);
-  color: #e3e5d2;
+  color: #e3e9dd;
   font-size: 0.85rem;
 }
 .foot {
@@ -924,10 +926,10 @@ footer {
   padding-block: 40px;
 }
 .foot .brand-name b {
-  color: #eee8da;
+  color: #f1ece4;
 }
 .foot .brand-name small {
-  color: #a6aa92;
+  color: #a39c93;
 }
 .foot-meta {
   display: grid;
@@ -979,7 +981,7 @@ body {
   width: 100%;
   transform-origin: 0 50%;
   transform: scaleX(0);
-  background: linear-gradient(90deg, var(--olive), #b9c38e, #c98b5e);
+  background: linear-gradient(90deg, var(--olive), #9ba88f, #c98e66);
   z-index: 20;
   pointer-events: none;
 }
@@ -1086,24 +1088,6 @@ header.scrolled .brand svg {
   .progress {
     display: none;
   }
-}
-
-/* ===== Logo: ponto no lugar do acento do Ó ===== */
-.o-dot {
-  position: relative;
-  display: inline-block;
-}
-.o-dot::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -0.165em;
-  width: 0.2em;
-  height: 0.2em;
-  border-radius: 50%;
-  background: #c0743f;
-  /* deslocado para a direita, como um acento */
-  transform: translateX(calc(-50% + 0.15em));
 }
 
 /* ===== Botão claro / escuro ===== */
@@ -1233,7 +1217,7 @@ body {
 }
 .service:hover svg {
   transform: translateY(-2px) scale(1.08);
-  stroke: var(--copper, #c0743f);
+  stroke: var(--copper, #b87a55);
 }
 @media (prefers-reduced-motion: reduce) {
   .service.svc.pre,
@@ -1314,7 +1298,7 @@ img {
   gap: 16px;
 }
 .u-cream {
-  color: #eee8da;
+  color: #f1ece4;
 }
 
 /* ===== Faixa do problema ===== */
@@ -1340,7 +1324,7 @@ img {
   font-weight: 800;
 }
 .problema-t .cobre {
-  color: #c0743f;
+  color: #b87a55;
 }
 .problema-r {
   color: var(--muted);
@@ -1369,7 +1353,7 @@ img {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #d9a06f;
-  border-top: 2px solid #b9c38e;
+  border-top: 2px solid #9ba88f;
   padding-top: 14px;
 }
 .tcard {
@@ -1380,11 +1364,11 @@ img {
 }
 .tcard h3 {
   font-size: 1.02rem;
-  color: #f3eee2;
+  color: #f4f2ee;
 }
 .tcard p {
   margin: 6px 0 0;
-  color: #e3e5d2;
+  color: #e3e9dd;
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -1393,7 +1377,7 @@ img {
   display: flex;
   gap: 16px;
   align-items: center;
-  border: 1px solid rgb(185, 195, 142, 0.35);
+  border: 1px solid rgb(155, 168, 143, 0.35);
   border-radius: 16px;
   padding: 18px 22px;
 }
@@ -1402,17 +1386,17 @@ img {
   height: 30px;
   flex: none;
   fill: none;
-  stroke: #c0743f;
+  stroke: #b87a55;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 .cadeado p {
   margin: 0;
-  color: #e3e5d2;
+  color: #e3e9dd;
 }
 .cadeado b {
-  color: #f3eee2;
+  color: #f4f2ee;
 }
 @media (max-width: 900px) {
   .tech {
@@ -1423,7 +1407,7 @@ img {
 /* ===== Lócus Nota ===== */
 .limite {
   background: var(--olive-deep);
-  color: #f3eee2;
+  color: #f4f2ee;
   border-radius: 14px;
   padding: 12px 14px;
   display: grid;
@@ -1434,10 +1418,10 @@ img {
   display: flex;
   justify-content: space-between;
   font-size: 0.78rem;
-  color: #b9c38e;
+  color: #9ba88f;
 }
 .limite b {
-  color: #f3eee2;
+  color: #f4f2ee;
   font-size: 0.95rem;
 }
 .limite i {
@@ -1451,11 +1435,11 @@ img {
   display: block;
   height: 100%;
   border-radius: 7px;
-  background: linear-gradient(90deg, #b9c38e, #c0743f);
+  background: linear-gradient(90deg, #9ba88f, #b87a55);
 }
 .limite small {
   font-size: 0.72rem;
-  color: #e3e5d2;
+  color: #e3e9dd;
 }
 .portal-link {
   display: inline-flex;
@@ -1499,11 +1483,11 @@ img {
 .plan.destaque {
   background: var(--olive-deep);
   border-color: var(--olive-deep);
-  color: #f3eee2;
+  color: #f4f2ee;
 }
 .plan.destaque .price small,
 .plan.destaque ul {
-  color: #e3e5d2;
+  color: #e3e9dd;
 }
 .nota-obs,
 .sim-obs {
@@ -1571,7 +1555,7 @@ img {
   grid-column: 1 / -1;
   margin: 0;
   background: var(--olive-deep);
-  color: #f3eee2;
+  color: #f4f2ee;
   border-radius: 16px;
   padding: 16px 20px;
   line-height: 1.5;
@@ -1591,18 +1575,18 @@ img {
 .foot-claim {
   margin: 0;
   align-self: center;
-  color: #e3e5d2;
+  color: #e3e9dd;
   font-size: 0.95rem;
 }
 .foot-claim b {
-  color: #f3eee2;
+  color: #f4f2ee;
 }
 .foot-equipe {
-  color: #a6aa92;
+  color: #a39c93;
   text-decoration: none;
 }
 .foot-equipe:hover {
-  color: #f3eee2;
+  color: #f4f2ee;
 }
 #sim-form label {
   grid-template-rows: 1fr auto;

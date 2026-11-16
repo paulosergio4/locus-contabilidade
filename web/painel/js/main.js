@@ -244,7 +244,7 @@
     return `<div class="ring"><svg viewBox="0 0 120 120" role="img" aria-label="${esc(nome)}: ${pct(v)}">
    <circle cx="60" cy="60" r="${r}" fill="none" stroke="${C.line}" stroke-width="11"/>
    ${f > 0.005 ? `<circle cx="60" cy="60" r="${r}" fill="none" stroke="${cor}" stroke-width="11" stroke-linecap="round" class="arc" data-dash="${c * f}" data-tot="${c}" stroke-dasharray="${c * f} ${c}" transform="rotate(-90 60 60)"/>` : ""}
-   <text x="60" y="66" text-anchor="middle" fill="${C.txt}" font-family="IBM Plex Mono, monospace" font-size="19" font-weight="500" data-count="${v}" data-fmt="pct">${pct(v)}</text></svg>
+   <text x="60" y="66" text-anchor="middle" fill="${C.txt}" font-family="Mulish, sans-serif" font-size="19" font-weight="500" data-count="${v}" data-fmt="pct">${pct(v)}</text></svg>
    <span class="n">${esc(nome)}</span></div>`;
   }
   function nice(mx) {
@@ -274,13 +274,13 @@
     let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Entradas e saídas por mês">`;
     for (let i = 0; i <= 4; i++) {
       const v = (top * i) / 4;
-      s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${C.line}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" fill="${C.muted}" font-size="11" font-family="IBM Plex Mono, monospace">${kfmt(v)}</text>`;
+      s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${C.line}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" fill="${C.muted}" font-size="11" font-family="Mulish, sans-serif">${kfmt(v)}</text>`;
     }
     M.forEach((m, i) => {
       const cx = L + g * i + g / 2;
       s += `<rect style="--i:${i}" x="${cx - bw - 3}" y="${y(m.ent)}" width="${bw}" height="${Math.max(0, T + ih - y(m.ent))}" rx="5" fill="${C.sage}"><title>Entradas ${MES[m.mes]}: ${brl.format(m.ent)}</title></rect>`;
       s += `<rect style="--i:${i}" x="${cx + 3}" y="${y(m.sai)}" width="${bw}" height="${Math.max(0, T + ih - y(m.sai))}" rx="5" fill="${C.copper}"><title>Saídas ${MES[m.mes]}: ${brl.format(m.sai)}</title></rect>`;
-      s += `<text x="${cx}" y="${H - 8}" text-anchor="middle" fill="${C.muted}" font-size="12" font-family="Montserrat, sans-serif">${MES[m.mes]}/${String(m.ano).slice(2)}</text>`;
+      s += `<text x="${cx}" y="${H - 8}" text-anchor="middle" fill="${C.muted}" font-size="12" font-family="Mulish, sans-serif">${MES[m.mes]}/${String(m.ano).slice(2)}</text>`;
     });
     return s + "</svg>";
   }
@@ -303,7 +303,7 @@
     let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Resultado mês a mês"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.sage}" stop-opacity=".3"/><stop offset="1" stop-color="${C.sage}" stop-opacity="0"/></linearGradient></defs>`;
     for (let i = 0; i <= 4; i++) {
       const v = bot + ((top - bot) * i) / 4;
-      s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? C.muted : C.line}" ${v === 0 ? 'stroke-dasharray="3 4"' : ""}/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" fill="${C.muted}" font-size="11" font-family="IBM Plex Mono, monospace">${kfmt(v)}</text>`;
+      s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? C.muted : C.line}" ${v === 0 ? 'stroke-dasharray="3 4"' : ""}/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" fill="${C.muted}" font-size="11" font-family="Mulish, sans-serif">${kfmt(v)}</text>`;
     }
     const pts = M.map((m, i) => [x(i), y(m.res)]);
     let d = `M${pts[0][0]},${pts[0][1]}`;
@@ -318,8 +318,8 @@
     M.forEach((m, i) => {
       const [px, py] = pts[i],
         cor = m.res < 0 ? C.bad : C.gold;
-      s += `<circle class="pt" style="--ad:${(0.9 + i * 0.2).toFixed(2)}s" cx="${px}" cy="${py}" r="5.5" fill="${cor}" stroke="${C.panel}" stroke-width="2"/><text class="ptl" style="--ad:${(0.9 + i * 0.2).toFixed(2)}s" x="${Math.min(W - R, Math.max(L + 20, px))}" y="${py - 12}" text-anchor="${i === M.length - 1 && M.length > 1 ? "end" : i === 0 && M.length > 1 ? "start" : "middle"}" fill="${C.txt}" font-size="11.5" font-weight="600" font-family="IBM Plex Mono, monospace">${brl.format(m.res)}</text>
-    <text x="${px}" y="${H - 8}" text-anchor="middle" fill="${C.muted}" font-size="12" font-family="Montserrat, sans-serif">${MES[m.mes]}/${String(m.ano).slice(2)}</text>`;
+      s += `<circle class="pt" style="--ad:${(0.9 + i * 0.2).toFixed(2)}s" cx="${px}" cy="${py}" r="5.5" fill="${cor}" stroke="${C.panel}" stroke-width="2"/><text class="ptl" style="--ad:${(0.9 + i * 0.2).toFixed(2)}s" x="${Math.min(W - R, Math.max(L + 20, px))}" y="${py - 12}" text-anchor="${i === M.length - 1 && M.length > 1 ? "end" : i === 0 && M.length > 1 ? "start" : "middle"}" fill="${C.txt}" font-size="11.5" font-weight="600" font-family="Mulish, sans-serif">${brl.format(m.res)}</text>
+    <text x="${px}" y="${H - 8}" text-anchor="middle" fill="${C.muted}" font-size="12" font-family="Mulish, sans-serif">${MES[m.mes]}/${String(m.ano).slice(2)}</text>`;
     });
     return s + "</svg>";
   }
@@ -338,8 +338,8 @@
       s += `<circle cx="95" cy="95" r="${r}" fill="none" stroke="${cores[i]}" stroke-width="26" class="slice" style="--ad:${(0.3 + i * 0.15).toFixed(2)}s" data-dash="${Math.max(0, c * fr - 2)}" data-tot="${c}" stroke-dasharray="${Math.max(0, c * fr - 2)} ${c}" stroke-dashoffset="${-c * acc}"><title>${esc(f.n)}: ${pct(fr)}</title></circle>`;
       acc += fr;
     });
-    s += `</g><text x="95" y="90" text-anchor="middle" fill="${C.muted}" font-size="10" font-family="Montserrat, sans-serif" letter-spacing="1.5">SAÍDAS</text>
-  <text x="95" y="110" text-anchor="middle" fill="${C.txt}" font-size="15" font-weight="600" font-family="IBM Plex Mono, monospace" data-count="${total}" data-fmt="kfmt">${kfmt(total)}</text></svg>`;
+    s += `</g><text x="95" y="90" text-anchor="middle" fill="${C.muted}" font-size="10" font-family="Mulish, sans-serif" letter-spacing="1.5">SAÍDAS</text>
+  <text x="95" y="110" text-anchor="middle" fill="${C.txt}" font-size="15" font-weight="600" font-family="Mulish, sans-serif" data-count="${total}" data-fmt="kfmt">${kfmt(total)}</text></svg>`;
     s +=
       "<ul>" +
       fatias
@@ -651,7 +651,7 @@
   }
   function corBarra() {
     const m = document.querySelector('meta[name="theme-color"]');
-    if (m) m.content = escuroAgora() ? "#12160D" : "#F3EEE3";
+    if (m) m.content = escuroAgora() ? "#1C1A18" : "#F4F2EE";
   }
   corBarra();
   $("btn-tema").onclick = () => {

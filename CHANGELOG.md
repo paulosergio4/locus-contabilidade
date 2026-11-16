@@ -2,6 +2,19 @@
 
 Formato: o que mudou, do mais novo para o mais antigo. Versões seguem `maior.menor.correção`.
 
+## 0.2.0 · 16/11/2026
+
+Identidade visual "Natural e neutra" em todo o sistema.
+
+- Logo novo: L de eixos fino com o ponto cobre, no site, no app, no painel, nos ícones do app e no favicon.
+- Cores: bege e linho de base, verde-sálvia nos destaques, cinza quente nos textos de apoio, cobre só no ponto.
+  Os temas claro e escuro foram ajustados para a nova paleta.
+- Fonte Mulish servida pelo próprio site (`web/compartilhado/fontes/`), sem Google Fonts: abre sem internet no
+  app e não envia o endereço de quem visita para terceiros.
+- Imagens da marca em `web/marca/` (usadas, por exemplo, na assinatura de e-mail).
+- App: `VERSAO` do service worker passou para `locus-app-v2`, para os aparelhos baixarem o visual novo.
+- Painel: os cartões do topo não mostram mais os números de exemplo depois de abrir a planilha.
+
 ## 0.1.0 · 29/10/2026
 
 Primeira versão do projeto Lócus Contabilidade separado do repositório `meus-projetos`.

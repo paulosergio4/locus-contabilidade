@@ -197,7 +197,7 @@
   }
   function barra() {
     var m = document.querySelector('meta[name="theme-color"]');
-    if (m) m.setAttribute("content", escuro() ? "#181C12" : "#56623A");
+    if (m) m.setAttribute("content", escuro() ? "#1C1A18" : "#4F5B46");
   }
   barra();
   var b = document.getElementById("tema-btn");

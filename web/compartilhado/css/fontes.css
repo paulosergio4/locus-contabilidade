@@ -1,0 +1,41 @@
+/*
+ * Fonte da marca: Mulish (SIL Open Font License, ver ../fontes/OFL.txt).
+ * Servida pelo próprio site, sem Google Fonts: abre sem internet no app e não
+ * envia o endereço de quem visita para terceiros (LGPD).
+ * Pesos: 300 títulos leves · 400 texto · 600 nomes · 700 valores · 800 destaque.
+ */
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fontes/mulish-latin-300-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fontes/mulish-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("../fontes/mulish-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fontes/mulish-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 800 900;
+  font-display: swap;
+  src: url("../fontes/mulish-latin-800-normal.woff2") format("woff2");
+}

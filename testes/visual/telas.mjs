@@ -17,6 +17,7 @@ const tipos = {
   ".png": "image/png",
   ".webmanifest": "application/json",
   ".svg": "image/svg+xml",
+  ".woff2": "font/woff2",
 };
 const servidor = createServer(async (req, res) => {
   const caminho = decodeURIComponent(new URL(req.url, "http://x").pathname);

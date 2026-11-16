@@ -1,58 +1,58 @@
 /* Layout: painel escuro em grade de 12 colunas; faixa de topo com marca e ações; cartões, anéis e gráficos em quadros arredondados */
 :root {
-  --bg: #12160d;
-  --bg2: #0c0f09;
-  --panel: #1c2216;
-  --panel2: #232a1b;
-  --line: #2f3826;
-  --line2: #262e1e;
-  --txt: #ede7d8;
-  --muted: #9aa08a;
-  --dim: #6f7562;
-  --sage: #b9c38e;
-  --olive: #8c9866;
-  --moss: #5a6447;
-  --copper: #d4895a;
-  --gold: #e6b95c;
-  --sand: #e8dcc2;
-  --good: #a8cf72;
-  --bad: #e57b6b;
-  --font: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
-  --topbg: rgb(12, 15, 9, 0.85);
-  --dropbg: rgb(28, 34, 22, 0.6);
-  --onaccent: #141810;
-  --accentfill: #b9c38e;
-  --accenthover: #cad3a3;
-  --glow1: rgb(185, 195, 142, 0.1);
-  --glow2: rgb(212, 137, 90, 0.1);
+  --bg: #1c1a18;
+  --bg2: #161412;
+  --panel: #262320;
+  --panel2: #2e2a26;
+  --line: #3a3530;
+  --line2: #312d29;
+  --txt: #f1ece4;
+  --muted: #b5ada3;
+  --dim: #8a837b;
+  --sage: #9ba88f;
+  --olive: #9ba88f;
+  --moss: #4f5b46;
+  --copper: #c98e66;
+  --gold: #d6b27a;
+  --sand: #e8dfd2;
+  --good: #a9c08f;
+  --bad: #e08a78;
+  --font: Mulish, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: Mulish, system-ui, sans-serif;
+  --topbg: rgb(28, 26, 24, 0.85);
+  --dropbg: rgb(38, 35, 32, 0.6);
+  --onaccent: #1c1a18;
+  --accentfill: #9ba88f;
+  --accenthover: #aebaa2;
+  --glow1: rgb(155, 168, 143, 0.1);
+  --glow2: rgb(201, 142, 102, 0.1);
   --shadow: none;
   color-scheme: dark;
 }
 
 :root:not([data-tema="escuro"]) {
-  --bg: #f3eee3;
-  --bg2: #eae3d4;
-  --panel: #fffdf8;
-  --panel2: #efe9dc;
-  --line: #ddd3bc;
-  --line2: #e6decb;
-  --txt: #1f2416;
-  --muted: #5e6450;
-  --dim: #868a76;
-  --sage: #6f7d45;
-  --olive: #8c9866;
-  --moss: #b9c38e;
-  --copper: #b86a3c;
+  --bg: #f4f2ee;
+  --bg2: #eae3d8;
+  --panel: #fff;
+  --panel2: #f1ece4;
+  --line: #ddd3c4;
+  --line2: #e8dfd2;
+  --txt: #2b2826;
+  --muted: #6e6862;
+  --dim: #857f78;
+  --sage: #4f5b46;
+  --olive: #9ba88f;
+  --moss: #9ba88f;
+  --copper: #b87a55;
   --gold: #ad8424;
   --sand: #c9b48a;
-  --good: #3f6e22;
+  --good: #4f6b3a;
   --bad: #b03a2e;
   --topbg: rgb(246, 242, 233, 0.88);
   --dropbg: rgb(255, 253, 248, 0.7);
-  --onaccent: #1f2416;
-  --accentfill: #b9c38e;
-  --accenthover: #a9b47c;
+  --onaccent: #2b2826;
+  --accentfill: #9ba88f;
+  --accenthover: #8a9880;
   --glow1: rgb(86, 98, 58, 0.1);
   --glow2: rgb(184, 106, 60, 0.08);
   --shadow: 0 14px 30px -24px rgb(46, 54, 32, 0.45);
@@ -60,28 +60,28 @@
 }
 
 :root[data-tema="claro"] {
-  --bg: #f3eee3;
-  --bg2: #eae3d4;
-  --panel: #fffdf8;
-  --panel2: #efe9dc;
-  --line: #ddd3bc;
-  --line2: #e6decb;
-  --txt: #1f2416;
-  --muted: #5e6450;
-  --dim: #868a76;
-  --sage: #6f7d45;
-  --olive: #8c9866;
-  --moss: #b9c38e;
-  --copper: #b86a3c;
+  --bg: #f4f2ee;
+  --bg2: #eae3d8;
+  --panel: #fff;
+  --panel2: #f1ece4;
+  --line: #ddd3c4;
+  --line2: #e8dfd2;
+  --txt: #2b2826;
+  --muted: #6e6862;
+  --dim: #857f78;
+  --sage: #4f5b46;
+  --olive: #9ba88f;
+  --moss: #9ba88f;
+  --copper: #b87a55;
   --gold: #ad8424;
   --sand: #c9b48a;
-  --good: #3f6e22;
+  --good: #4f6b3a;
   --bad: #b03a2e;
   --topbg: rgb(246, 242, 233, 0.88);
   --dropbg: rgb(255, 253, 248, 0.7);
-  --onaccent: #1f2416;
-  --accentfill: #b9c38e;
-  --accenthover: #a9b47c;
+  --onaccent: #2b2826;
+  --accentfill: #9ba88f;
+  --accenthover: #8a9880;
   --glow1: rgb(86, 98, 58, 0.1);
   --glow2: rgb(184, 106, 60, 0.08);
   --shadow: 0 14px 30px -24px rgb(46, 54, 32, 0.45);
@@ -144,9 +144,9 @@ body {
   color: inherit;
 }
 .brand b {
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 20px;
 }
 .brand span {
   font-weight: 600;
@@ -274,7 +274,7 @@ body {
 }
 .drop.over {
   border-color: var(--sage);
-  background: rgb(185, 195, 142, 0.08);
+  background: rgb(155, 168, 143, 0.08);
 }
 .drop .ic {
   width: 44px;
@@ -815,27 +815,6 @@ footer .wrap {
 }
 
 /* ===== Logo: ponto no lugar do acento do Ó ===== */
-.brand b .o-dot {
-  font: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-}
-.o-dot {
-  position: relative;
-  display: inline-block;
-}
-.o-dot::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0.02em;
-  width: 0.2em;
-  height: 0.2em;
-  border-radius: 50%;
-  background: #c0743f;
-  /* deslocado para a direita, como um acento */
-  transform: translateX(calc(-50% + 0.15em));
-}
 
 /* ---------- utilitários (antes eram estilos inline) ---------- */
 .acc-sage {

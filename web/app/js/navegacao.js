@@ -116,7 +116,7 @@ function pintarAbas(telaAtiva) {
   pintar(
     menu,
     html`<div class="marca-menu" aria-hidden="true">
-        <svg viewBox="0 0 448 120"><use href="#logo-lockup" /></svg>
+        <svg viewBox="0 0 300 64"><use href="#logo-lockup" /></svg>
       </div>
       ${abas.map(
         ([rota, texto, icone]) =>

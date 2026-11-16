@@ -4,7 +4,7 @@
  * Os dados (guias, documentos) nunca ficam aqui: vêm sempre do Supabase.
  * Ao mudar qualquer arquivo do app, aumente a VERSAO para os aparelhos atualizarem.
  */
-const VERSAO = "locus-app-v1";
+const VERSAO = "locus-app-v2";
 const ARQUIVOS = [
   "./",
   "./index.html",
@@ -39,6 +39,12 @@ const ARQUIVOS = [
   "../compartilhado/js/arquivos.js",
   "../compartilhado/js/icones.js",
   "../compartilhado/js/ui.js",
+  "../compartilhado/css/fontes.css",
+  "../compartilhado/fontes/mulish-latin-300-normal.woff2",
+  "../compartilhado/fontes/mulish-latin-400-normal.woff2",
+  "../compartilhado/fontes/mulish-latin-600-normal.woff2",
+  "../compartilhado/fontes/mulish-latin-700-normal.woff2",
+  "../compartilhado/fontes/mulish-latin-800-normal.woff2",
 ];
 
 self.addEventListener("install", (evento) => {

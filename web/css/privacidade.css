@@ -1,9 +1,9 @@
 /* Página do aviso de privacidade: texto simples, nas cores da Lócus. */
 :root {
-  --bg: #f6f2e9;
-  --ink: #1f2416;
-  --muted: #5e6450;
-  --olive: #56623a;
+  --bg: #f4f2ee;
+  --ink: #2b2826;
+  --muted: #6e6862;
+  --olive: #4f5b46;
   color-scheme: light;
 }
 
@@ -11,7 +11,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: Montserrat, system-ui, sans-serif;
+  font-family: Mulish, system-ui, sans-serif;
   line-height: 1.6;
 }
 
