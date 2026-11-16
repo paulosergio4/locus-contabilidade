@@ -19,18 +19,56 @@
   --on-accent: #2b2826;
 }
 
+/* Tema escuro: carvão quente em camadas (página < faixa < cartão) e faixas de destaque
+   em sálvia escuro, para nada se perder no fundo. */
 :root[data-theme="dark"] {
-  --olive: #a9b59d;
-  --olive-deep: #1c1a18;
-  --olive-soft: #6e7a63;
-  --beige: #262320;
-  --paper: #1c1a18;
+  --olive: #b4c0a6; /* sálvia clara: rótulos, links e números em destaque */
+  --olive-deep: #2a3227; /* sálvia escuro: faixas, plano em destaque, rodapé */
+  --olive-soft: #7d8a70;
+  --beige: #1e1b18; /* faixa alternada */
+  --paper: #161412; /* fundo da página */
   --ink: #f1ece4;
-  --muted: #b5ada3;
-  --line: #3a3530;
-  --card: #262320;
-  --on-olive: #1c1a18;
+  --muted: #b8afa4;
+  --line: #38322c;
+  --card: #23201c;
+  --on-olive: #f1ece4;
+  --accent: #a9b59d;
+  --accent-h: #bcc6b1;
+  --on-accent: #1a1816;
   color-scheme: dark;
+}
+:root[data-theme="dark"] .cta {
+  background: var(--olive-deep);
+  color: var(--ink);
+  border: 1px solid #3e4a38;
+}
+:root[data-theme="dark"] .cta .eyebrow {
+  color: var(--olive);
+  opacity: 1;
+}
+:root[data-theme="dark"] .cta .btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+:root[data-theme="dark"] .cta .btn:hover {
+  background: var(--accent-h);
+  border-color: var(--accent-h);
+  color: var(--on-accent);
+}
+:root[data-theme="dark"] .plan.destaque {
+  border-color: #3e4a38;
+  box-shadow: 0 24px 48px -32px rgb(0, 0, 0, 0.8);
+}
+:root[data-theme="dark"] .tag.due {
+  background: rgb(214, 178, 122, 0.16);
+  color: #e0bf8a;
+}
+:root[data-theme="dark"] .phone {
+  background: #0f0e0d;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 40px 80px -40px rgb(0, 0, 0, 0.8);
 }
 
 * {
@@ -587,7 +625,7 @@ section {
   border-radius: 38px;
   background: var(--olive-deep);
   padding: 12px;
-  box-shadow: 0 40px 80px -40px rgb(20, 24, 14, 0.6);
+  box-shadow: 0 40px 80px -40px rgb(43, 40, 38, 0.45);
 }
 .screen {
   background: var(--paper);
@@ -994,7 +1032,7 @@ header .nav {
   transition: padding 0.3s ease;
 }
 header.scrolled {
-  box-shadow: 0 10px 30px -18px rgb(20, 24, 14, 0.55);
+  box-shadow: 0 10px 30px -18px rgb(43, 40, 38, 0.4);
 }
 header.scrolled .nav {
   padding-block: 8px;
@@ -1546,7 +1584,7 @@ img {
 }
 .opc.melhor {
   border: 2px solid var(--olive);
-  box-shadow: 0 16px 36px -24px rgb(46, 54, 32, 0.6);
+  box-shadow: 0 16px 36px -24px rgb(79, 91, 70, 0.45);
 }
 .opc.fora {
   opacity: 0.55;
